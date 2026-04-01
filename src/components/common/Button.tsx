@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { cn } from "../../utils/cn";
+import { cn } from "@/utils/cn";
 
 type ButtonType = "outline" | "solid";
 

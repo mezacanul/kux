@@ -1,5 +1,5 @@
-import Button from "../common/Button";
-import { cn } from "../../utils/cn";
+import Button from "@/components/common/Button";
+import { cn } from "@/utils/cn";
 
 export default function Reservations({
   data,

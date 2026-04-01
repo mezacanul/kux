@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import Button from "../common/Button";
-import { cn } from "../../utils/cn";
+import Button from "@/components/common/Button";
+import { cn } from "@/utils/cn";
 import DatePicker from "./DatePicker";
 import TimePicker from "./TimePicker";
 import GuestsPicker from "./GuestsPicker";

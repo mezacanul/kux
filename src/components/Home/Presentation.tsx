@@ -1,6 +1,5 @@
-import { useResponsive } from "@/hooks/useResponsive";
 import { cn } from "@/utils/cn";
-import ImageRespSrc from "../common/ImageRespSrc";
+import ImageRespSrc from "@/components/common/ImageRespSrc";
 
 const images = [
   {
