@@ -1,7 +1,7 @@
 import { cn } from "@/utils/cn";
 import Logo from "@/components/Logo";
 
-export default function Footer() {
+export default function Footer({ cms }: { cms: any }) {
   return (
     <footer
       className={cn(
@@ -9,7 +9,7 @@ export default function Footer() {
         "px-container py-[3rem] pb-[5rem] lg:py-[5rem] bg-neutral-900 text-white"
       )}
     >
-      <Logo />
+      <Logo title={cms.title} />
 
       <div className="flex flex-col items-center lg:items-start gap-2">
         {/* <p>{cdn.location}</p>

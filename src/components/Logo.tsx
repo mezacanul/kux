@@ -1,8 +1,10 @@
 import Link from "next/link";
 
 export default function Logo({
+  title,
   link = false,
 }: {
+  title: string;
   link?: boolean;
 }) {
   return (
@@ -12,7 +14,7 @@ export default function Logo({
       }`}
       href="/"
     >
-      {"K'UX"}
+      {title}
     </Link>
   );
 }

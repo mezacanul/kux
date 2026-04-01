@@ -3,6 +3,7 @@ import { League_Spartan } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
+import { fetchCMSData } from "@/lib/cms";
 
 const leagueSpartan = League_Spartan({
   variable: "--font-league-spartan",
@@ -15,20 +16,24 @@ export const metadata: Metadata = {
     "Comida tradicional yucateca, con un toque moderno e innovador",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const mainData = await fetchCMSData({
+    region: "es",
+    resource: "main",
+  });
   return (
     <html
       lang="en"
       className={`${leagueSpartan.variable} h-full antialiased`}
     >
       <body className="relative">
-        <Header />
+        <Header cms={mainData} />
         {children}
-        <Footer />
+        <Footer cms={mainData} />
       </body>
     </html>
   );
