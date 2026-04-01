@@ -2,7 +2,7 @@ import { cn } from "@/utils/cn";
 import Logo from "@/components/Logo";
 
 export default function Footer({ cms }: { cms: any }) {
-  const { footer } = cms;
+  const { title, footer } = cms;
   return (
     <footer
       className={cn(
@@ -10,7 +10,7 @@ export default function Footer({ cms }: { cms: any }) {
         "px-container py-[3rem] pb-[5rem] lg:py-[5rem] bg-neutral-900 text-white"
       )}
     >
-      <Logo title={cms.title} />
+      <Logo title={title} />
 
       <div className="flex flex-col items-center lg:items-start gap-2">
         <p>{footer.location}</p>

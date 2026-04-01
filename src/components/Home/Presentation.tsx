@@ -73,10 +73,10 @@ export default function Presentation({
               alt="Enjoyable place icon"
             />
             <h2 className={cns.description.title}>
-              {data.presentation[0].title}
+              {data[0].title}
             </h2>
             <p className={cns.description.description}>
-              {data.presentation[0].description}
+              {data[0].description}
             </p>
           </div>
         </div>
@@ -102,10 +102,10 @@ export default function Presentation({
               alt="Enjoyable place icon"
             />
             <h2 className={cns.description.title}>
-              {data.presentation[1].title}
+              {data[1].title}
             </h2>
             <p className={cns.description.description}>
-              {data.presentation[1].description}
+              {data[1].description}
             </p>
           </div>
         </div>

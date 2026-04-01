@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { League_Spartan } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import { fetchCMSData } from "@/lib/cms";

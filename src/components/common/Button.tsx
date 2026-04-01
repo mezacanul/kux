@@ -7,14 +7,16 @@ type ButtonType = "outline" | "solid";
 type ButtonProps = {
   label: string;
   type?: ButtonType;
-  to: string;
+  to?: string;
   disabled?: boolean;
+  onClick?: () => void;
 };
 
 export default function Button({
   label,
   type = "outline",
-  to,
+  to = "",
+  onClick,
   disabled = false,
 }: ButtonProps) {
   const router = useRouter();
@@ -25,10 +27,18 @@ export default function Button({
       : "bg-neutral-950 text-white border-2 border-transparent hover:bg-white hover:text-neutral-950 hover:border-neutral-950 hover:border-2",
     disabled ? "opacity-50 cursor-not-allowed" : ""
   );
+
+  function handleClick() {
+    if (to) {
+      router.push(to);
+    } else if (onClick) {
+      onClick();
+    }
+  }
   return (
     <button
       className={classes}
-      onClick={() => router.push(to)}
+      onClick={handleClick}
       disabled={disabled}
     >
       {label}
