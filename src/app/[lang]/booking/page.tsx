@@ -3,13 +3,18 @@ import { cn } from "@/utils/cn";
 import { fetchCMSData } from "@/lib/cms";
 import Form from "@/components/Booking/Form";
 
-export default async function BookingPage() {
+export default async function BookingPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
   const mainData = await fetchCMSData({
-    region: "es",
+    region: lang,
     resource: "main",
   });
   const bookingData = await fetchCMSData({
-    region: "es",
+    region: lang,
     resource: "booking",
   });
   const bgClass =

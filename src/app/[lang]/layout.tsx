@@ -18,16 +18,19 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params;
   const mainData = await fetchCMSData({
-    region: "es",
+    region: lang,
     resource: "main",
   });
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${leagueSpartan.variable} h-full antialiased`}
     >
       <body className="relative">

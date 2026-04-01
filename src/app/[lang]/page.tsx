@@ -5,13 +5,18 @@ import Highlights from "@/components/Home/Highlights";
 import Booking from "@/components/Home/Booking";
 import Reservations from "@/components/Home/Reservations";
 
-export default async function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
   const mainData = await fetchCMSData({
-    region: "es",
+    region: lang,
     resource: "main",
   });
   const homeData = await fetchCMSData({
-    region: "es",
+    region: lang,
     resource: "home",
   });
   return (
