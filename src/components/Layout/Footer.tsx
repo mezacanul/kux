@@ -2,6 +2,7 @@ import { cn } from "@/utils/cn";
 import Logo from "@/components/Logo";
 
 export default function Footer({ cms }: { cms: any }) {
+  const { footer } = cms;
   return (
     <footer
       className={cn(
@@ -12,15 +13,15 @@ export default function Footer({ cms }: { cms: any }) {
       <Logo title={cms.title} />
 
       <div className="flex flex-col items-center lg:items-start gap-2">
-        {/* <p>{cdn.location}</p>
-        <p>{cdn.country}</p>
-        <p>{cdn.phone}</p> */}
+        <p>{footer.location}</p>
+        <p>{footer.country}</p>
+        <p>{footer.phone}</p>
       </div>
 
       <div className="flex flex-col items-center lg:items-start gap-2">
-        {/* <p>{cdn.times.title}</p>
-        <p>{cdn.times.weekly}</p>
-        <p>{cdn.times.weekend}</p> */}
+        <p>{footer.times.title}</p>
+        <p>{footer.times.weekly}</p>
+        <p>{footer.times.weekend}</p>
       </div>
     </footer>
   );

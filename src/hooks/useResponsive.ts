@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-type ResponsiveValues<T> = [T, T, T?, T?, T?];
+export type ResponsiveValues<T> = [T, T, T?, T?, T?];
 
 /**
  * @param values - Array of 2 to 5 values
