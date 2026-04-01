@@ -1,25 +1,6 @@
 import { cn } from "@/utils/cn";
 import ImageRespSrc from "@/components/common/ImageRespSrc";
 
-const images = [
-  {
-    desktop:
-      "/images/homepage/enjoyable-place-desktop@2x.jpg",
-    tablet:
-      "/images/homepage/enjoyable-place-tablet@2x.jpg",
-    mobile:
-      "/images/homepage/enjoyable-place-mobile@2x.jpg",
-  },
-  {
-    desktop:
-      "/images/homepage/locally-sourced-desktop@2x.jpg",
-    tablet:
-      "/images/homepage/locally-sourced-tablet@2x.jpg",
-    mobile:
-      "/images/homepage/locally-sourced-mobile@2x.jpg",
-  },
-];
-
 export default function Presentation({
   data,
 }: {
@@ -53,10 +34,11 @@ export default function Presentation({
         <ImageRespSrc
           className={cn(cns.image, "-mt-[5rem]")}
           srcArray={[
-            images[0].mobile,
-            images[0].tablet,
-            images[0].desktop,
+            data[0].bg_images.mobile,
+            data[0].bg_images.tablet,
+            data[0].bg_images.desktop,
           ]}
+          useCDN={true}
         />
         <div
           className={cn(
@@ -112,10 +94,11 @@ export default function Presentation({
         <ImageRespSrc
           className={cn(cns.image, "lg:-mb-[5rem]")}
           srcArray={[
-            images[1].mobile,
-            images[1].tablet,
-            images[1].desktop,
+            data[1].bg_images.mobile,
+            data[1].bg_images.tablet,
+            data[1].bg_images.desktop,
           ]}
+          useCDN={true}
         />
       </div>
     </div>

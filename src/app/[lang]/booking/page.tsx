@@ -1,6 +1,6 @@
 import Logo from "@/components/Logo";
 import { cn } from "@/utils/cn";
-import { fetchCMSData } from "@/lib/cms";
+import { fetchCMSData, getImageBaseURL } from "@/lib/cms";
 import Form from "@/components/Booking/Form";
 
 export default async function BookingPage({
@@ -9,6 +9,7 @@ export default async function BookingPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const baseURL = getImageBaseURL();
   const mainData = await fetchCMSData({
     region: lang,
     resource: "main",
@@ -17,8 +18,7 @@ export default async function BookingPage({
     region: lang,
     resource: "booking",
   });
-  const bgClass =
-    "bg-[url('/images/booking/hero-bg-desktop@2x.jpg')]";
+
   return (
     <div
       className={cn(
@@ -30,9 +30,11 @@ export default async function BookingPage({
         className={cn(
           "flex lg:flex-row flex-col justify-between items-center",
           "w-full h-[60vh] bg-cover bg-center px-container text-white",
-          bgClass,
           "gap-[3rem] sm:gap-[4rem] lg:gap-0 py-[5rem] lg:py-0"
         )}
+        style={{
+          backgroundImage: `url(${baseURL}/${bookingData.bg_image})`,
+        }}
       >
         <div className="w-full lg:w-[45%] flex flex-col gap-5 items-center lg:items-start">
           <header className="block lg:hidden">

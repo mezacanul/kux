@@ -1,14 +1,11 @@
-const images = [
-  "/images/homepage/salmon-mobile@2x.jpg",
-  "/images/homepage/beef-mobile@2x.jpg",
-  "/images/homepage/chocolate-mobile@2x.jpg",
-];
+import { getImageBaseURL } from "@/lib/cms";
 
 export default function Highlights({
   data,
 }: {
   data: any;
 }) {
+  const baseURL = getImageBaseURL();
   return (
     <div className="px-container relative flex flex-col lg:grid lg:grid-cols-2 gap-[5rem] bg-neutral-900 text-white pt-[5rem] sm:pt-[8rem] lg:pt-[15rem] pb-[7rem] sm:pb-[10rem]">
       <div className="flex flex-col items-center w-[90%] mx-auto lg:mx-0 lg:w-full lg:items-start gap-[2rem] pe-0 lg:pe-[4rem] relative">
@@ -42,7 +39,7 @@ export default function Highlights({
             {/* Image  */}
             <img
               className="w-full sm:w-[150px] object-cover z-10"
-              src={images[index]}
+              src={`${baseURL}/${item.image}`}
             />
             <div className="flex flex-col gap-[1rem] w-[80%] sm:w-full">
               <h3 className="text-4-bold text-center sm:text-left">

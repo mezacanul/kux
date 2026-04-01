@@ -19,6 +19,7 @@ export default async function Home({
     region: lang,
     resource: "home",
   });
+
   return (
     <>
       <Hero data={homeData} title={mainData.title} />

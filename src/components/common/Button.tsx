@@ -15,11 +15,12 @@ type ButtonProps = {
 export default function Button({
   label,
   type = "outline",
-  to = "",
+  to,
   onClick,
   disabled = false,
 }: ButtonProps) {
   const router = useRouter();
+
   const classes = cn(
     "text-4-regular py-[1rem] px-[3rem] cursor-pointer transition-all duration-300",
     type === "outline"

@@ -1,19 +1,21 @@
 import Button from "@/components/common/Button";
 import { cn } from "@/utils/cn";
+import { getImageBaseURL } from "@/lib/cms";
 
 export default function Reservations({
   data,
 }: {
   data: any;
 }) {
-  const bgClass =
-    "bg-[url('/images/homepage/ready-bg-desktop@2x.jpg')]";
+  const baseURL = getImageBaseURL();
   return (
     <div
       className={cn(
-        bgClass,
         "px-container bg-cover bg-center text-white py-[5rem] flex flex-col gap-[2rem] lg:gap-0 lg:flex-row items-center justify-between"
       )}
+      style={{
+        backgroundImage: `url(${baseURL}/${data.bg_image})`,
+      }}
     >
       <h2 className="text-2-bold text-center lg:text-left">
         {data.title}

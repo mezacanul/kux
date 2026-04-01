@@ -1,6 +1,7 @@
 import { cn } from "@/utils/cn";
 import Button from "@/components/common/Button";
 import Logo from "@/components/Logo";
+import HeroContainer from "./HeroContainer";
 
 export default function Hero({
   data,
@@ -9,22 +10,16 @@ export default function Hero({
   data: any;
   title: string;
 }) {
+  console.log(data);
+
   const cns = {
-    container: cn(
-      "bg-[url('/images/homepage/hero-bg-mobile@2x.jpg')]",
-      "sm:bg-[url('/images/homepage/hero-bg-tablet@2x.jpg')]",
-      "lg:bg-[url('/images/homepage/hero-bg-desktop@2x.jpg')]",
-      "px-container relative justify-center lg:justify-start",
-      "bg-cover bg-center",
-      "h-screen w-full flex items-center text-white"
-    ),
     backdrop: cn(
       "",
       "w-full h-[50%] top-[30%] sm:top-[33%] left-0 h-full",
       "absolute lg:inset-0 bg-neutral-950 lg:w-[530px] lg:h-full"
     ),
     content: cn(
-      "items-center",
+      "items-center relative",
       "w-[80%] sm:w-[70%] lg:w-[500px] mt-15 lg:mt-0 flex flex-col gap-[1.5rem] lg:items-start z-10"
     ),
     title: cn("text-1 text-center lg:text-left"),
@@ -33,7 +28,7 @@ export default function Hero({
     ),
   };
   return (
-    <div className={cns.container}>
+    <HeroContainer bgImages={data.hero.bg_images}>
       <div className={cns.backdrop} />
       <div className={cns.content}>
         <header className="block lg:hidden">
@@ -46,6 +41,6 @@ export default function Hero({
         </p>
         <Button label={data.hero.btn} to="/booking" />
       </div>
-    </div>
+    </HeroContainer>
   );
 }

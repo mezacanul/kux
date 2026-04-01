@@ -2,22 +2,19 @@
 import { useState } from "react";
 import Button from "@/components/common/Button";
 import { useResponsive } from "@/hooks/useResponsive";
-
-const images = [
-  "/images/homepage/family-gathering-desktop@2x.jpg",
-  "/images/homepage/special-events-desktop@2x.jpg",
-  "/images/homepage/social-events-desktop@2x.jpg",
-];
+import { getImageBaseURL } from "@/lib/cms";
 
 export default function Booking({ data }: { data: any }) {
+  const baseURL = getImageBaseURL();
   const [currentIndex, setCurrentIndex] = useState(0);
+
   return (
     <div className="px-container relative flex flex-col gap-[2rem] sm:gap-[3rem] lg:gap-0 lg:grid lg:grid-cols-2 py-[5rem] lg:py-[10rem] bg-neutral-50">
       <Patterns />
       {/* Content  */}
       <img
         className="w-full h-[400px] lg:h-full object-top lg:object-center object-cover shadow-xl/40 z-10"
-        src={images[currentIndex]}
+        src={`${baseURL}/${data.options[currentIndex].image}`}
       />
       <div className="flex justify-center items-center w-full">
         <div className="flex flex-col w-[85%] lg:w-full mx-auto lg:mx-0 items-center lg:items-start gap-[2rem] sm:gap-[3rem] lg:gap-[3.5rem] ps-0 lg:ps-[7rem]">

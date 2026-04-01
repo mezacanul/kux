@@ -3,7 +3,7 @@ type RequestProps = {
   resource: string;
 };
 
-export async function fetchCMSData({
+async function fetchCMSData({
   region,
   resource,
 }: RequestProps) {
@@ -19,3 +19,11 @@ export async function fetchCMSData({
     return content;
   }
 }
+
+function getImageBaseURL() {
+  const baseURL = process.env.NEXT_PUBLIC_CMS_URL;
+  const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+  return `${baseURL}/images/${projectId}`;
+}
+
+export { fetchCMSData, getImageBaseURL };
